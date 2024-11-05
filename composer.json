@@ -1,0 +1,33 @@
+{
+    "name": "homsym/homsym-birthday-checker",
+    "description": "homsym/homsym-birthday-checker",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Checker\\HomsymBirthdayChecker",
+        "label": {
+            "de-DE": "Homsym Geburtstag Prüfer",
+            "en-GB": "Homsym Birthday Checker "
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Checker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Checker\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Suraj Chandra Raya",
+            "role": "developer"
+        }
+    ]
+}

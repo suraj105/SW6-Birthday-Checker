@@ -1,0 +1,9 @@
+{
+    "birthday": {
+        "administration": {
+            "menuItem": "Birthday Checker",
+            "navItem": "Birthday Checker",
+            "description": "Here is a good plugin"
+        }
+    }
+}

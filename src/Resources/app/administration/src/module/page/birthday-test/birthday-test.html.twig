@@ -1,0 +1,46 @@
+{% block sw_customer_detail %}
+    <sw-page class="birthday-test">
+        <template #content>
+            <!-- Buttons to filter customer lists -->
+            <div class="button-group">
+                <button class="action-button" @click="showAllCustomers">Show All Customers</button>
+                <button class="action-button" @click="showTodaysBirthdaysOnly">Show Today’s Birthdays</button>
+            </div>
+
+            <!-- Customer Table or No Customers Message -->
+            <div v-if="customers && customers.length">
+                <table class="birthday-table">
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Birthday</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Make the entire row clickable with a click event -->
+                    <tr v-for="customer in customers"
+                        :key="customer.id"
+                        @click="sendEmailToCustomer(customer.email)"
+                        style="cursor: pointer;">
+                        <td>{{ customer.firstName }}</td>
+                        <td>{{ customer.lastName }}</td>
+                        <td>{{ formatDate(customer.birthday) }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!-- "Load More" Button to Load Additional Pages -->
+                <div class="button-group">
+                    <button v-if="customers.length % pageSize === 0"
+                            class="action-button"
+                            @click="loadMoreCustomers">
+                        Load More
+                    </button>
+                </div>
+            </div>
+            <p v-else>No customers found</p>
+
+        </template>
+    </sw-page>
+{% endblock %}
